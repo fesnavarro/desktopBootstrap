@@ -10,7 +10,7 @@ Este script realiza a instalação dos componentes básicos para meu desktop.
 
 # Modo se usar
 
-1. Utilize o usuario SKEL para criar o padrao da maquina
+1. Utilize o usuario SKEL para criar o padrão da máquina
 
 2. Faço o download do script
 'cd /tmp ; git clone --depth 1 --single-branch --branch desktopBootstrap https://github.com/fesnavarro/desktopBootstrap.git'
