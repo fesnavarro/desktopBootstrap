@@ -1,6 +1,2 @@
-#Engineering
-echo "### Draftsight"
-yay draftSight
-
 echo "### QElectroTech"
-yay qelectrotech
+apt install qelectrotech -y
