@@ -10,6 +10,10 @@ update-grub
 echo "### System update"
 sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean
 
+echo "### Terminal"
+add-apt-repository ppa:mmstick76/alacritty
+apt install alacritty -y
+
 echo "### Install default programs"
 sudo apt install git -y
 sudo apt install curl -y
