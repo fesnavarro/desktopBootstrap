@@ -1,6 +1,6 @@
 # desktopBootstrap
 
-##### 4.19.69-1-MANJARO com I3WM
+##### Kubuntu
 
 ## Boostrap for desktop
 
