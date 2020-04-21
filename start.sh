@@ -10,16 +10,18 @@ update-grub
 echo "### System update"
 sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean
 
+echo "### Customization on KDE
+sudo add-apt-repository ppa:papirus/papirus
+sudo apt install --install-recommends arc-kde
 
 echo "### Install default programs"
+sudo apt install git -y
+sudo apt install curl -y
 sudo apt install snapd -y
 sudo systemctl enable snapd.service
 sudo systemctl start snapd.service
-sudo apt install jdk-openjdk -y
 
-sudo apt install openssh -y
-sudo systemctl enable sshd.service
-sudo systemctl start sshd.service
+sudo apt install openssh-server -y
 
 sudo apt install dstat -y
 sudo apt install htop -y
@@ -33,6 +35,12 @@ sudo cat /tmp/desktop-bootstrap/files/zram.service > /etc/systemd/system/zram.se
 sudo systemctl enable zram
 
 sudo apt install flatpak -y
+
+echo "### Brave Browser
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com focal main" >> /etc/apt/sources.list.d/brave.list'
+sudo apt update
+sudo apt install brave-browser -y
  
 echo "### Docker"
 sudo apt install docker -y
