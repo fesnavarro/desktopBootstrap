@@ -14,8 +14,7 @@ echo "### Install default programs"
 sudo apt install git -y
 sudo apt install curl -y
 sudo apt install snapd -y
-sudo systemctl enable snapd.service
-sudo systemctl start snapd.service
+sudo apt install synaptic -y
 
 sudo apt install openssh-server -y
 
