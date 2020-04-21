@@ -1,1 +1,1 @@
-sudo pacman -Sy trash-cli
+sudo apt install trash-cli -y
