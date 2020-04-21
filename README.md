@@ -1,6 +1,6 @@
 # desktopBootstrap
 
-##### Manjaro
+##### Kubuntu
 
 ## Boostrap for desktop
 
