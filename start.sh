@@ -41,6 +41,7 @@ sudo apt install brave-browser
 echo "### Docker"
 sudo apt install docker -y
 sudo apt install docker-compose -y
+sudo usermod -aG docker $USER
 
 echo "### freeOffice"
 sudo apt install libreoffice -y
