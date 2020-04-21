@@ -10,10 +10,6 @@ update-grub
 echo "### System update"
 sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean
 
-echo "### Customization on KDE
-sudo add-apt-repository ppa:papirus/papirus
-sudo apt install --install-recommends arc-kde
-
 echo "### Install default programs"
 sudo apt install git -y
 sudo apt install curl -y
@@ -37,30 +33,21 @@ sudo systemctl enable zram
 sudo apt install flatpak -y
 
 echo "### Brave Browser
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com focal main" >> /etc/apt/sources.list.d/brave.list'
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
-sudo apt install brave-browser -y
+sudo apt install brave-browser
  
 echo "### Docker"
 sudo apt install docker -y
 sudo apt install docker-compose -y
-sudo systemctl start docker
-sudo systemctl enable docker
 
 echo "### freeOffice"
-sudo apt install freeoffice -y
+sudo apt install libreoffice -y
 
 #Calculadora cientifica
 echo  "### SpeedCrunch CALC"
 sudo apt install speedcrunch -y
-
-
-echo "### VSCODE"
-sudo apt install software-properties-common apt-transport-https wget
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt install code
 
 echo "### ARDUINO"
 sudo apt install arduino -y
@@ -74,15 +61,25 @@ sudo apt install teamviewer -y
 sudo apt install  anydesk -y
 sudo apt install remmina -y
 
-echo "### Install graphic editors"
-sudo apt install gimp
-sudo apt install inkscape
-sudo apt install blender
-sudo apt install obs-studio
-snap install opentoonz
+echo "### Install editors"
+sudo apt install gimp -y
+sudo apt install inkscape -y
+sudo apt install blender -y
+sudo apt install obs-studio -y
+snap install opentoonz -y
+sudo apt install neovim -y
+
+echo "### VSCODE"
+sudo apt install code
 
 echo "### Install audio editor"
-snap install audacity
+sudo apt install audacity -y
+
+echo "### Dropbox Client
+echo "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu bionic main"  > /etc/apt/sources.list.d/dropbox.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+sudo apt update
+sudo apt install python3-gpg dropbox
 
 echo "Pronto você já pode aproveitar dos seus novos recursos instalados!"
 bash -x ./tmp/desktop-bootstrap/complementos/bat.sh
