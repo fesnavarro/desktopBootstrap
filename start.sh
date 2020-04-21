@@ -67,6 +67,8 @@ sudo apt install inkscape -y
 sudo apt install blender -y
 sudo apt install obs-studio -y
 snap install opentoonz -y
+
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt install neovim -y
 
 echo "### VSCODE"
