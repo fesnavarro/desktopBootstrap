@@ -1,6 +1,4 @@
-pamac install virtualbox $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ')
-sudo vboxreload
-pamac build virtualbox-ext-oracle
-sudo gpasswd -a $USER vboxusers
-sudo pacman -Sy virtualbox-guest-iso
-#/usr/lib/virtualbox/additions/VBoxGuestAdditions.iso
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+sudo apt install virtualbox-6.0
