@@ -85,6 +85,4 @@ sudo apt install python3-gpg dropbox
 
 echo "Pronto você já pode aproveitar dos seus novos recursos instalados!"
 bash -x ./tmp/desktop-bootstrap/complementos/bat.sh
-bash -x ./tmp/desktop-bootstrap/complementos/printers.sh
-bash -x ./tmp/desktop-bootstrap/complementos/nvimIde.sh
 bash -x ./tmp/desktop-bootstrap/complementos/virtualBox.sh
