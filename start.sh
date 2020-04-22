@@ -45,6 +45,7 @@ echo "### Docker"
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo usermod -aG docker $USER
+sudo apt install gnupg2 pass
 
 echo "### freeOffice"
 sudo apt install libreoffice -y
