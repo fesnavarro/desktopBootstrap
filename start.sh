@@ -25,14 +25,6 @@ sudo apt install openssh-server -y
 sudo apt install dstat -y
 sudo apt install htop -y
 
-sudo modprobe zram
-sudo sh -c "echo 'lz4' > /sys/block/zram0/comp_algorithm"
-sudo sh -c "echo '2G' > /sys/block/zram0/disksize"
-sudo mkswap --label zram0 /dev/zram0
-sudo swapon --priority 100 /dev/zram0
-sudo cat /tmp/desktop-bootstrap/files/zram.service > /etc/systemd/system/zram.service
-sudo systemctl enable zram
-
 sudo apt install flatpak -y
 
 echo "### Brave Browser
