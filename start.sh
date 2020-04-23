@@ -85,3 +85,4 @@ bash -x ./tmp/desktop-bootstrap/complementos/bat.sh
 bash -x ./tmp/desktop-bootstrap/complementos/trash.sh
 bash -x ./tmp/desktop-bootstrap/complementos/engineering.sh
 bash -x ./tmp/desktop-bootstrap/complementos/virtualBox.sh
+bash -x ./tmp/desktop-bootstrap/complementos/nextcloud-app.sh
