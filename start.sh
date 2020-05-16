@@ -80,6 +80,11 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1C61A2656FB57B7E4D
 sudo apt update
 sudo apt install python3-gpg dropbox
 
+echo "### Nodejs"
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+apt install nodejs
+
 echo "Pronto você já pode aproveitar dos seus novos recursos instalados!"
 bash -x ./tmp/desktop-bootstrap/complementos/bat.sh
 bash -x ./tmp/desktop-bootstrap/complementos/trash.sh
