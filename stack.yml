@@ -1,0 +1,89 @@
+---
+# ansible-playbook apt.yml
+
+- name: run tasks on all hosts
+  hosts: "bootstrapMachine"
+  tasks:
+    - apt_repository:
+        repo: deb ppa:mmstick76/alacritty
+        codename: bionic
+        become: true
+
+    - apt_repository:
+        pkg: deb ppa:neovim-ppa/stable
+        codename: bionic
+        become: true
+
+    - name: Add an apt key from id and a keyserver
+      apt_key:
+        id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E 
+        keyring: keyserver.ubuntu.com
+
+    - apt_repository:
+        pkg: deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu bionic main
+        become: true
+
+    - name: Add an apt key from url and a keyserver
+      apt_key:
+        url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
+        keyring: /etc/apt/trusted.gpg.d/brave-browser-release.gpg
+
+    - apt_repository:
+        pkg: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        become: true
+
+    - apt_repository:
+        pkg: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        become: true
+
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+        update_cache: yes
+        become: true
+
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: dist
+        become: true
+
+    - name: Install packages
+      apt:
+        pkg: dstat
+          git
+          curl
+          snapd
+          synaptic
+          openssh-server
+          htop
+          flatpak
+          alacritty
+          docker
+          docker-compose
+          libreoffice
+          speedcrunch
+          arduino
+          keepassxc
+          vnc-viewer
+          teamviewer
+          anydesk
+          remmina
+          gimp
+          inkscape
+          blender
+          obs-studio
+          opentoonz
+          code
+          audacity
+          curl
+          python3-gpg 
+          dropbox
+          nodejs
+        state: latest
+        become: true
+
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
